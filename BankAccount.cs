@@ -19,9 +19,13 @@ namespace CSharpBank
                 return balance;
             }
         }
+        //Account number seed to start with
         private static int accountNumberSeed = 1674513240;
 
+        //List for holding transactions
         private List<Transaction> allTransactions = new List<Transaction>();
+
+        //Constructor for the Bank Account
         public BankAccount(string name, decimal initialBalance)
         {
             this.Number = accountNumberSeed.ToString();
@@ -30,6 +34,7 @@ namespace CSharpBank
             this.Owner = name;
             MakeDeposit(initialBalance, DateTime.Now, "Initial balance");
         }
+        //Function for making a deposit with exceptions handled
         public void MakeDeposit(decimal amount, DateTime date, string note)
         {
             if (amount <= 0)
@@ -40,6 +45,7 @@ namespace CSharpBank
             allTransactions.Add(deposit);
         }
 
+        //Function for making a withdrawal with exceptions handled
         public void MakeWithdrawal(decimal amount, DateTime date, string note)
         {
             if (amount <= 0)
@@ -58,8 +64,11 @@ namespace CSharpBank
         {
             var report = new System.Text.StringBuilder();
 
+            //Header for table
             decimal balance = 0;
             report.AppendLine("Date\t\tAmount\tBalance\tNote");
+
+            //Transactions being iterated through, then appended to the string
             foreach (var item in allTransactions)
             {
                 balance += item.Amount;
