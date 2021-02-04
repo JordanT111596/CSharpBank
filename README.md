@@ -1,2 +1,2 @@
 # CSharpBank
-A banking application using C# and .Net
+A console banking application using C# and .Net

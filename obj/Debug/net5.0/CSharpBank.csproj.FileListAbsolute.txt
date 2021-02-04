@@ -1,0 +1,16 @@
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\bin\Debug\net5.0\CSharpBank.exe
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\bin\Debug\net5.0\CSharpBank.deps.json
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\bin\Debug\net5.0\CSharpBank.runtimeconfig.json
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\bin\Debug\net5.0\CSharpBank.runtimeconfig.dev.json
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\bin\Debug\net5.0\CSharpBank.dll
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\bin\Debug\net5.0\ref\CSharpBank.dll
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\bin\Debug\net5.0\CSharpBank.pdb
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\obj\Debug\net5.0\CSharpBank.csprojAssemblyReference.cache
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\obj\Debug\net5.0\CSharpBank.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\obj\Debug\net5.0\CSharpBank.AssemblyInfoInputs.cache
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\obj\Debug\net5.0\CSharpBank.AssemblyInfo.cs
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\obj\Debug\net5.0\CSharpBank.csproj.CoreCompileInputs.cache
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\obj\Debug\net5.0\CSharpBank.dll
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\obj\Debug\net5.0\ref\CSharpBank.dll
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\obj\Debug\net5.0\CSharpBank.pdb
+C:\Users\jorda\Sandbox\C# Practice\CSharpBank\obj\Debug\net5.0\CSharpBank.genruntimeconfig.cache
