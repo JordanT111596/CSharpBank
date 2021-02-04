@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace CSharpBank
 {
@@ -6,20 +7,51 @@ namespace CSharpBank
     {
         public string Number { get; }
         public string Owner { get; set; }
-        public decimal Balance { get; }
-        private static int accountNumberSeed = 1234567890;
-        
+        public decimal Balance
+        {
+            get
+            {
+                decimal balance = 0;
+                foreach (var item in allTransactions)
+                {
+                    balance += item.Amount;
+                }
+                return balance;
+            }
+        }
+        private static int accountNumberSeed = 1674513240;
+
+        private List<Transaction> allTransactions = new List<Transaction>();
         public BankAccount(string name, decimal initialBalance)
         {
+            this.Number = accountNumberSeed.ToString();
+            accountNumberSeed++;
+
             this.Owner = name;
-            this.Balance = initialBalance;
+            MakeDeposit(initialBalance, DateTime.Now, "Initial balance");
         }
         public void MakeDeposit(decimal amount, DateTime date, string note)
         {
+            if (amount <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(amount), "You can't just deposit nothing! Nor make a negative deposit!");
+            }
+            var deposit = new Transaction(amount, date, note);
+            allTransactions.Add(deposit);
         }
 
         public void MakeWithdrawal(decimal amount, DateTime date, string note)
         {
+            if (amount <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(amount), "You must withdraw a positive number from your available balance");
+            }
+            if (Balance - amount < 0)
+            {
+                throw new InvalidOperationException("You don't have enough for this withdrawal");
+            }
+            var withdrawal = new Transaction(-amount, date, note);
+            allTransactions.Add(withdrawal);
         }
     }
 }
