@@ -13,9 +13,9 @@ namespace CSharpBank
 
             //Showing examples of transactions at work
             account.MakeWithdrawal(1100, DateTime.Now, "Rent payment");
-            Console.WriteLine(account.Balance);
+            Console.WriteLine($"The balance is now {account.Balance}");
             account.MakeDeposit(100, DateTime.Now, "Friend paid me back");
-            Console.WriteLine(account.Balance);
+            Console.WriteLine($"The balance is now {account.Balance}");
 
             // // Test that the initial balances must be positive.
             // try
