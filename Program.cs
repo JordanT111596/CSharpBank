@@ -1,5 +1,7 @@
 ﻿using System;
 
+using BankLibrary;
+
 namespace CSharpBank
 {
     class Program

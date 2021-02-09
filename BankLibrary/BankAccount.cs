@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CSharpBank
+namespace BankLibrary
 {
     public class BankAccount
     {

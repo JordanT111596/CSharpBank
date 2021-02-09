@@ -1,6 +1,6 @@
 using System;
 
-namespace CSharpBank
+namespace BankLibrary
 {
     public class Transaction
     {
