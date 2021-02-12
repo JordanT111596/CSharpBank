@@ -19,19 +19,22 @@ namespace CSharpBank
             //creates new account with user-provided name and deposit
             var account = new BankAccount(accountName, initDeposit);
             //Account creation successful line
-            Console.WriteLine($"Success! Account {account.Number} was created for {account.Owner} with ${account.Balance} initial balance.");
+            Console.WriteLine($"\nSuccess! Account {account.Number} was created for {account.Owner} with ${account.Balance} initial balance.");
 
             //menu appears for user asking if they want to withdraw, deposit, view account history, or exit
+            Console.WriteLine("\nWhat would you like to do?\n1. Make a Withdrawal\n2. Make a Deposit\n3. View Account History\n4. Exit");
+            //User choice is stored in the variable after converting to int
+            var choice = Convert.ToInt32(Console.ReadLine());
             //if user wants to withdraw, ask them for amount and description, then show success message, then back to menu
             //if user wants to deposit, ask them for amount and description, then show success message, then back to menu
             //if user wants to view account history, display the history, then back to menu
             //if user wants to exit, then show exit message, then exit the applicaiton
 
             //Showing examples of transactions at work
-            account.MakeWithdrawal(1100, DateTime.Now, "Rent payment");
-            Console.WriteLine($"The balance is now {account.Balance}");
-            account.MakeDeposit(100, DateTime.Now, "Friend paid me back");
-            Console.WriteLine($"The balance is now {account.Balance}");
+            // account.MakeWithdrawal(1100, DateTime.Now, "Rent payment");
+            // Console.WriteLine($"The balance is now {account.Balance}");
+            // account.MakeDeposit(100, DateTime.Now, "Friend paid me back");
+            // Console.WriteLine($"The balance is now {account.Balance}");
 
             // // Test that the initial balances must be positive.
             // try
@@ -58,7 +61,7 @@ namespace CSharpBank
             // }
 
             //Shows account history after previous hard coded transactions
-            Console.WriteLine(account.GetAccountHistory());
+            // Console.WriteLine(account.GetAccountHistory());
         }
     }
 }
