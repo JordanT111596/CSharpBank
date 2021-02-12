@@ -10,10 +10,14 @@ namespace CSharpBank
         {
             //asks user for their name
             Console.WriteLine("Please enter your name:");
-            //Sets account name to the user's input
+            //sets account name to the user's input
             string accountName = Convert.ToString(Console.ReadLine());
-            //creates new account with user-provided name
-            var account = new BankAccount(accountName, 2000);
+            //asks user to enter their initial deposit
+            Console.WriteLine("What is your opening deposit?");
+            //sets initDeposit to the user's input
+            decimal initDeposit = Convert.ToDecimal(Console.ReadLine());
+            //creates new account with user-provided name and deposit
+            var account = new BankAccount(accountName, initDeposit);
             //Account creation successful line
             Console.WriteLine($"Success! Account {account.Number} was created for {account.Owner} with ${account.Balance} initial balance.");
 
