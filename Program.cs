@@ -21,6 +21,12 @@ namespace CSharpBank
             //Account creation successful line
             Console.WriteLine($"Success! Account {account.Number} was created for {account.Owner} with ${account.Balance} initial balance.");
 
+            //menu appears for user asking if they want to withdraw, deposit, view account history, or exit
+            //if user wants to withdraw, ask them for amount and description, then show success message, then back to menu
+            //if user wants to deposit, ask them for amount and description, then show success message, then back to menu
+            //if user wants to view account history, display the history, then back to menu
+            //if user wants to exit, then show exit message, then exit the applicaiton
+
             //Showing examples of transactions at work
             account.MakeWithdrawal(1100, DateTime.Now, "Rent payment");
             Console.WriteLine($"The balance is now {account.Balance}");
