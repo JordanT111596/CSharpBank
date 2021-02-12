@@ -8,8 +8,12 @@ namespace CSharpBank
     {
         static void Main(string[] args)
         {
-            //creates new account with my name
-            var account = new BankAccount("Jordan", 2000);
+            //asks user for their name
+            Console.WriteLine("Please enter your name:");
+            //Sets account name to the user's input
+            string accountName = Convert.ToString(Console.ReadLine());
+            //creates new account with user-provided name
+            var account = new BankAccount(accountName, 2000);
             //Account creation successful line
             Console.WriteLine($"Success! Account {account.Number} was created for {account.Owner} with ${account.Balance} initial balance.");
 
