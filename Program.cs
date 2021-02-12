@@ -20,15 +20,8 @@ namespace CSharpBank
             var account = new BankAccount(accountName, initDeposit);
             //Account creation successful line
             Console.WriteLine($"\nSuccess! Account {account.Number} was created for {account.Owner} with ${account.Balance} initial balance.");
-
-            //menu appears for user asking if they want to withdraw, deposit, view account history, or exit
-            Console.WriteLine("\nWhat would you like to do?\n1. Make a Withdrawal\n2. Make a Deposit\n3. View Account History\n4. Exit");
-            //User choice is stored in the variable after converting to int
-            var choice = Convert.ToInt32(Console.ReadLine());
-            //if user wants to withdraw, ask them for amount and description, then show success message, then back to menu
-            //if user wants to deposit, ask them for amount and description, then show success message, then back to menu
-            //if user wants to view account history, display the history, then back to menu
-            //if user wants to exit, then show exit message, then exit the applicaiton
+            //Begins running the menu after account creation
+            account.runMenu();
 
             //Showing examples of transactions at work
             // account.MakeWithdrawal(1100, DateTime.Now, "Rent payment");

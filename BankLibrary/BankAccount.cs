@@ -77,5 +77,54 @@ namespace BankLibrary
 
             return report.ToString();
         }
+                //Method for bringing up menu UI
+        public void runMenu()
+        {
+
+            //initializes the choice integer variable
+            Int32 choice;
+            //loop begins that runs menu and functions until exit is chosen
+            do
+            {
+                //menu appears for user asking if they want to withdraw, deposit, view account history, or exit
+                Console.WriteLine("\nWhat would you like to do?\n1. Make a Withdrawal\n2. Make a Deposit\n3. View Account History\n4. Exit");
+                //User choice is stored in the variable after converting to int
+                choice = Convert.ToInt32(Console.ReadLine());
+
+                //switch case to decide what to do based on user option
+                switch (choice)
+                {
+                    //if user wants to withdraw, ask them for amount and description, then show success message, then back to menu
+                    case 1:
+                        Console.WriteLine("\n---------------------------------------------------------------------------");
+                        Console.WriteLine("How much would you like to withdraw?");
+                        Console.WriteLine("---------------------------------------------------------------------------");
+                        var withTotal = Convert.ToDecimal(Console.ReadLine());
+                        Console.WriteLine("\n---------------------------------------------------------------------------");
+                        Console.WriteLine("Describe this transaction:");
+                        Console.WriteLine("---------------------------------------------------------------------------");
+                        String withDesc = Convert.ToString(Console.ReadLine());
+                        MakeWithdrawal(withTotal, DateTime.Now, withDesc);
+                        Console.WriteLine($"\nSuccess! Your withdrawal of {withTotal} for {withDesc} was made at {DateTime.Now}!\nThat leaves you with a balance of ${Balance}");
+                        break;
+                    //if user wants to deposit, ask them for amount and description, then show success message, then back to menu
+                    case 2:
+                    //if user wants to view account history, display the history, then back to menu
+                    case 3:
+                    //if user wants to exit, then exit the applicaiton
+                    case 4:
+                        Console.WriteLine("\n***************************************************************************");
+                        break;
+                    //Any other choice is brought back to the menu until a correct option is chosen
+                    default:
+                        Console.WriteLine("\nPlease enter either 1, 2, 3, or 4 to make your selection!");
+                        break;
+                }
+            }
+            while (choice != 4);
+
+            //Exit message
+            Console.WriteLine("\nThank you for banking with Jordan's C Sharp!");
+        }
     }
 }
