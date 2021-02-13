@@ -23,12 +23,6 @@ namespace CSharpBank
             //Begins running the menu after account creation
             account.runMenu();
 
-            //Showing examples of transactions at work
-            // account.MakeWithdrawal(1100, DateTime.Now, "Rent payment");
-            // Console.WriteLine($"The balance is now {account.Balance}");
-            // account.MakeDeposit(100, DateTime.Now, "Friend paid me back");
-            // Console.WriteLine($"The balance is now {account.Balance}");
-
             // // Test that the initial balances must be positive.
             // try
             // {
@@ -39,8 +33,6 @@ namespace CSharpBank
             //     Console.WriteLine("Exception caught creating account with negative balance");
             //     Console.WriteLine(e.ToString());
             // }
-
-            // account.MakeWithdrawal(60, DateTime.Now, "Bought Ghost of Tsushima");
 
             // // Test for a negative balance.
             // try
@@ -53,8 +45,6 @@ namespace CSharpBank
             //     Console.WriteLine(e.ToString());
             // }
 
-            //Shows account history after previous hard coded transactions
-            // Console.WriteLine(account.GetAccountHistory());
         }
     }
 }
