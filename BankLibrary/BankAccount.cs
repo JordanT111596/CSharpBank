@@ -105,12 +105,26 @@ namespace BankLibrary
                         Console.WriteLine("---------------------------------------------------------------------------");
                         String withDesc = Convert.ToString(Console.ReadLine());
                         MakeWithdrawal(withTotal, DateTime.Now, withDesc);
-                        Console.WriteLine($"\nSuccess! Your withdrawal of {withTotal} for {withDesc} was made at {DateTime.Now}!\nThat leaves you with a balance of ${Balance}");
+                        Console.WriteLine($"\nSuccess! Your withdrawal of ${withTotal} for {withDesc} was made at {DateTime.Now}!\nThat leaves you with a balance of ${Balance}");
                         break;
                     //if user wants to deposit, ask them for amount and description, then show success message, then back to menu
                     case 2:
+                        Console.WriteLine("\n---------------------------------------------------------------------------");
+                        Console.WriteLine("How much would you like to deposit?");
+                        Console.WriteLine("---------------------------------------------------------------------------");
+                        var depTotal = Convert.ToDecimal(Console.ReadLine());
+                        Console.WriteLine("\n---------------------------------------------------------------------------");
+                        Console.WriteLine("Describe this transaction:");
+                        Console.WriteLine("---------------------------------------------------------------------------");
+                        String depDesc = Convert.ToString(Console.ReadLine());
+                        MakeDeposit(depTotal, DateTime.Now, depDesc);
+                        Console.WriteLine($"\nSuccess! Your deposit of ${depTotal} for {depDesc} was made at {DateTime.Now}!\nThat leaves you with a balance of ${Balance}");
+                        break;
                     //if user wants to view account history, display the history, then back to menu
                     case 3:
+                        Console.WriteLine($"\nHistory for Account owner: {Owner}\tAccount Number: {Number}\n");
+                        Console.WriteLine(GetAccountHistory());
+                        break;
                     //if user wants to exit, then exit the applicaiton
                     case 4:
                         Console.WriteLine("\n***************************************************************************");
