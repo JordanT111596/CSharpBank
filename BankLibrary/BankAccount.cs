@@ -149,7 +149,7 @@ namespace BankLibrary
                 }
                 catch (FormatException e)
                 {
-                    Console.WriteLine("\nPlease enter either 1, 2, 3, or 4 to make your selection!");
+                    Console.WriteLine("\nTry again, but this time with an appropiate number if you want this to work!");
                 }
             }
         }
