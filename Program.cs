@@ -8,20 +8,34 @@ namespace CSharpBank
     {
         static void Main(string[] args)
         {
+            bool tryAgain = true;
             //asks user for their name
             Console.WriteLine("Please enter your name:");
             //sets account name to the user's input
             string accountName = Convert.ToString(Console.ReadLine());
             //asks user to enter their initial deposit
             Console.WriteLine("What is your opening deposit?");
-            //sets initDeposit to the user's input
-            decimal initDeposit = Convert.ToDecimal(Console.ReadLine());
-            //creates new account with user-provided name and deposit
-            var account = new BankAccount(accountName, initDeposit);
-            //Account creation successful line
-            Console.WriteLine($"\nSuccess! Account {account.Number} was created for {account.Owner} with ${account.Balance} initial balance.");
-            //Begins running the menu after account creation
-            account.runMenu();
+            //Loop created to catch format exceptions on the opening deposit
+            while (tryAgain)
+            {
+                try
+                {
+                    //sets initDeposit to the user's input
+                    decimal initDeposit = Convert.ToDecimal(Console.ReadLine());
+                    //Makes sure we don't loop again
+                    tryAgain = false;
+                    //creates new account with user-provided name and deposit
+                    var account = new BankAccount(accountName, initDeposit);
+                    //Account creation successful line
+                    Console.WriteLine($"\nSuccess! Account {account.Number} was created for {account.Owner} with ${account.Balance} initial balance.");
+                    //Begins running the menu after account creation
+                    account.runMenu();
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Please enter a positive number for your opening deposit");
+                }
+            }
 
             // // Test that the initial balances must be positive.
             // try
