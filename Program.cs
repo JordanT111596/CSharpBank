@@ -34,9 +34,9 @@ namespace CSharpBank
                 {
                     Console.WriteLine("Please enter a positive number for your opening deposit");
                 }
-                    //Begins running the menu after account creation
-                    account.runMenu();
             }
+            //Begins running the menu after account creation
+            account.runMenu();
 
             // // Test that the initial balances must be positive.
             // try
