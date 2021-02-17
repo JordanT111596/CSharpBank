@@ -37,27 +37,55 @@ namespace BankLibrary
         //Function for making a deposit with exceptions handled
         public void MakeDeposit(decimal amount, DateTime date, string note)
         {
-            if (amount <= 0)
+            bool aoorEx1 = true;
+            while (aoorEx1)
             {
-                throw new ArgumentOutOfRangeException(nameof(amount), "You can't just deposit nothing! Nor make a negative deposit!");
+                try
+                {
+                    if (amount <= 0)
+                    {
+                        throw new ArgumentOutOfRangeException(nameof(amount), "You can't just deposit nothing! Nor make a negative deposit!");
+                    }
+                    var deposit = new Transaction(amount, date, note);
+                    allTransactions.Add(deposit);
+                    aoorEx1 = false;
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    Console.WriteLine(e);
+                }
             }
-            var deposit = new Transaction(amount, date, note);
-            allTransactions.Add(deposit);
         }
 
         //Function for making a withdrawal with exceptions handled
         public void MakeWithdrawal(decimal amount, DateTime date, string note)
         {
-            if (amount <= 0)
+            bool aoorEx2 = true;
+            while (aoorEx2)
             {
-                throw new ArgumentOutOfRangeException(nameof(amount), "You must withdraw a positive number from your available balance");
+                try
+                {
+                    if (amount <= 0)
+                    {
+                        throw new ArgumentOutOfRangeException(nameof(amount), "You must withdraw a positive number from your available balance");
+                    }
+                    if (Balance - amount < 0)
+                    {
+                        throw new InvalidOperationException("You don't have enough for this withdrawal");
+                    }
+                    var withdrawal = new Transaction(-amount, date, note);
+                    allTransactions.Add(withdrawal);
+                    aoorEx2 = false;
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    Console.WriteLine(e);
+                }
+                catch (InvalidOperationException e)
+                {
+                    Console.WriteLine(e);
+                }
             }
-            if (Balance - amount < 0)
-            {
-                throw new InvalidOperationException("You don't have enough for this withdrawal");
-            }
-            var withdrawal = new Transaction(-amount, date, note);
-            allTransactions.Add(withdrawal);
         }
 
         public string GetAccountHistory()
