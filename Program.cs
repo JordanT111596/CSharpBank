@@ -23,6 +23,10 @@ namespace CSharpBank
                 {
                     //sets initDeposit to the user's input
                     decimal initDeposit = Convert.ToDecimal(Console.ReadLine());
+                    if (initDeposit <= 0)
+                    {
+                        throw new ArgumentOutOfRangeException(nameof(initDeposit), "You can't just open an account with nothing! Or a negative balance!");
+                    }
                     //Makes sure we don't loop again
                     tryAgain = false;
                     //creates new account with user-provided name and deposit
@@ -33,6 +37,10 @@ namespace CSharpBank
                 catch (FormatException e)
                 {
                     Console.WriteLine("Please enter a positive number for your opening deposit");
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    Console.WriteLine("You can't just open an account with nothing! Or a negative balance!");
                 }
             }
             //Begins running the menu after account creation
