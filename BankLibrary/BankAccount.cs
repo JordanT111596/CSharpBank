@@ -37,27 +37,47 @@ namespace BankLibrary
         //Function for making a deposit with exceptions handled
         public void MakeDeposit(decimal amount, DateTime date, string note)
         {
-            if (amount <= 0)
+            if (amount > 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(amount), "You can't just deposit nothing! Nor make a negative deposit!");
+                var deposit = new Transaction(amount, date, note);
+                allTransactions.Add(deposit);
             }
-            var deposit = new Transaction(amount, date, note);
-            allTransactions.Add(deposit);
+            else
+            {
+                Console.WriteLine("You can't deposit nothing or even less than nothing!");
+            }
+            //Previous version of method commented below
+            // if (amount <= 0)
+            // {
+            //     throw new ArgumentOutOfRangeException(nameof(amount), "You can't just deposit nothing! Nor make a negative deposit!");
+            // }
+            // var deposit = new Transaction(amount, date, note);
+            // allTransactions.Add(deposit);
         }
 
         //Function for making a withdrawal with exceptions handled
         public void MakeWithdrawal(decimal amount, DateTime date, string note)
         {
-            if (amount <= 0)
+            if (amount > 0 && Balance - amount > 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(amount), "You must withdraw a positive number from your available balance");
+                var withdrawal = new Transaction(-amount, date, note);
+                allTransactions.Add(withdrawal);
             }
-            if (Balance - amount < 0)
+            else
             {
-                throw new InvalidOperationException("You don't have enough for this withdrawal");
+                Console.WriteLine("You have attempted an invalid transaction! Try Again!");
             }
-            var withdrawal = new Transaction(-amount, date, note);
-            allTransactions.Add(withdrawal);
+            //Previous version of method commented below
+            // if (amount <= 0)
+            // {
+            //     throw new ArgumentOutOfRangeException(nameof(amount), "You must withdraw a positive number from your available balance");
+            // }
+            // if (Balance - amount < 0)
+            // {
+            //     throw new InvalidOperationException("You don't have enough for this withdrawal");
+            // }
+            // var withdrawal = new Transaction(-amount, date, note);
+            // allTransactions.Add(withdrawal);
         }
 
         public string GetAccountHistory()
