@@ -42,11 +42,12 @@ namespace BankLibrary
                 var deposit = new Transaction(amount, date, note);
                 allTransactions.Add(deposit);
                 //Possibly print success message here
+                Console.WriteLine($"\nSuccess! Your deposit of ${amount} for {note} was made at {date}!\nThat leaves you with a balance of ${Balance}");
+
             }
             else
             {
-                Console.WriteLine("You can't deposit nothing or even less than nothing!");
-                //Possibly print failure message here
+                Console.WriteLine("Error! You can't deposit nothing or even less than nothing!");
             }
             //Previous version of method commented below
             // if (amount <= 0)
@@ -65,11 +66,11 @@ namespace BankLibrary
                 var withdrawal = new Transaction(-amount, date, note);
                 allTransactions.Add(withdrawal);
                 //Possibly print success message here
+                Console.WriteLine($"\nSuccess! Your withdrawal of ${amount} for {note} was made at {date}!\nThat leaves you with a balance of ${Balance}");
             }
             else
             {
-                Console.WriteLine("You have attempted an invalid transaction! Try Again!");
-                //Possibly print failure message here
+                Console.WriteLine("Error! You have attempted an invalid transaction! Try Again!");
             }
             //Previous version of method commented below
             // if (amount <= 0)
@@ -135,8 +136,6 @@ namespace BankLibrary
                                 Console.WriteLine("---------------------------------------------------------------------------");
                                 String withDesc = Convert.ToString(Console.ReadLine());
                                 MakeWithdrawal(withTotal, DateTime.Now, withDesc);
-                                //Need a check to change this line based on success or failure, possibly move to actual method
-                                Console.WriteLine($"\nSuccess! Your withdrawal of ${withTotal} for {withDesc} was made at {DateTime.Now}!\nThat leaves you with a balance of ${Balance}");
                                 break;
                             //if user wants to deposit, ask them for amount and description, then show success message, then back to menu
                             case 2:
@@ -149,8 +148,6 @@ namespace BankLibrary
                                 Console.WriteLine("---------------------------------------------------------------------------");
                                 String depDesc = Convert.ToString(Console.ReadLine());
                                 MakeDeposit(depTotal, DateTime.Now, depDesc);
-                                //Need a check to change this line based on success or failure, possibly move to actual method
-                                Console.WriteLine($"\nSuccess! Your deposit of ${depTotal} for {depDesc} was made at {DateTime.Now}!\nThat leaves you with a balance of ${Balance}");
                                 break;
                             //if user wants to view account history, display the history, then back to menu
                             case 3:
