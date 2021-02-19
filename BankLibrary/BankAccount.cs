@@ -49,13 +49,6 @@ namespace BankLibrary
             {
                 Console.WriteLine("Error! You can't deposit nothing or even less than nothing!");
             }
-            //Previous version of method commented below
-            // if (amount <= 0)
-            // {
-            //     throw new ArgumentOutOfRangeException(nameof(amount), "You can't just deposit nothing! Nor make a negative deposit!");
-            // }
-            // var deposit = new Transaction(amount, date, note);
-            // allTransactions.Add(deposit);
         }
 
         //Function for making a withdrawal with exceptions handled
@@ -72,17 +65,6 @@ namespace BankLibrary
             {
                 Console.WriteLine("Error! You have attempted an invalid transaction! Try Again!");
             }
-            //Previous version of method commented below
-            // if (amount <= 0)
-            // {
-            //     throw new ArgumentOutOfRangeException(nameof(amount), "You must withdraw a positive number from your available balance");
-            // }
-            // if (Balance - amount < 0)
-            // {
-            //     throw new InvalidOperationException("You don't have enough for this withdrawal");
-            // }
-            // var withdrawal = new Transaction(-amount, date, note);
-            // allTransactions.Add(withdrawal);
         }
 
         public string GetAccountHistory()
